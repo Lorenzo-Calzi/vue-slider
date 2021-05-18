@@ -4,12 +4,13 @@ const app = new Vue({
     data: {
         counter: 0,
         images: [
-            "https://www.celestron.it/wp-content/uploads/2018/02/mars.jpg",
-            "https://www.uai.it/sito/wp-content/uploads/2021/02/perseverance.jpg",
-            "https://www.astronautinews.it/wp-content/uploads/2021/03/Profile_of_the_Arsia_Mons_Elongated_Cloud.jpg",
-            "https://www.asi.it/wp-content/uploads/2021/02/Perspective_view_of_Mars_north_polar_ice_cap_pillars.jpg",
-        ]
+            "./IMG/Immagine_1.jpg",
+            "./IMG/Immagine_2.jpg",
+            "./IMG/Immagine_3.jpg",
+            "./IMG/Immagine_4.jpg",
+        ],
 
+        color: 'blue'
     },
 
     methods: {
@@ -29,46 +30,42 @@ const app = new Vue({
             return this.counter += 1;
         },
 
-        /* buttons(){
-            if(this.button == first){
-                console.log('eccolo' + this.button);  
-            }
-
-
-            console.log('Cliccato su buttons' + this.button)
-            return this.counter = third;
-            
-        }, */
-
-        first(){
-            /* document.getElementById('first').insertAdjacentHTML('beforeend', `
-            <div class="button">
-                <style="color:red"></style=>
-            </div>
-            `)  */
+        first_button(){
             return this.counter = first;
-            
         },
 
-        second(){
+        second_button(){
             return this.counter = second;
         },
 
-        third(){
+        third_button(){
             return this.counter = third;
         },
 
-        fourth(){
+        fourth_button(){
             return this.counter = fourth;
         },
 
+        changeColor() {
+                if(this.color === 'blue') {
+                    this.color = 'red'
+                } else {
+                    this.color = 'blue'
+                }
+            }
     },
 
-    /* mounted(){
-        alert('hello')
-    } */
+     mounted(){
+        document.addEventListener('keyup', (event) => {
+            console.log(event.key)
+            if(event.key == "ArrowLeft") {
+                this.prev();
+            } else if (event.key == "ArrowRight"){
+                this.next();
+            }
+        })
+    }
 })
-
 
 
 const first = document.getElementById("first").getAttribute('data-value');

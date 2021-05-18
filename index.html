@@ -13,25 +13,28 @@
 <body>
     
     <div id="app">
-        <div class="prev" @click="prev" v-on:keyup.enter="submit">
+        <div class="prev" @click="prev">
             <i class="fas fa-chevron-left"></i>
         </div>
 
-        <img :src="images[counter]" alt="">
+        <img :src="images[counter]" alt="slider" class="slider">
 
         <div class="next" @click="next">
             <i class="fas fa-chevron-right"></i>
         </div>
+
         
 
         <div id="buttons">
-            <div id="first" @click="first" data-value="0" class="button"></div>
 
-            <div id="second" @click="second" data-value="1" class="button"></div>
+            <div id="first" @click="first_button" data-value="0" class="button" v-bind:class="color" @click="changeColor"></div>
 
-            <div id="third" @click="third" data-value="2" class="button"></div>
+            <div id="second" @click="second_button" data-value="1" class="button"></div>
 
-            <div id="fourth" @click="fourth" data-value="3" class="button"></div>
+            <div id="third" @click="third_button" data-value="2" class="button"></div>
+
+            <div id="fourth" @click="fourth_button" data-value="3" class="button"></div>
+
         </div>
     </div>
 
