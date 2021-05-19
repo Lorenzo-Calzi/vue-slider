@@ -43,5 +43,7 @@ const app = new Vue({
                 this.next();
             }
         })
+
+        setInterval(this.next, 5000);
     }
 })
